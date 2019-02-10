@@ -22,7 +22,7 @@ class Clock {
         var source = new TimeoutSource(1000);
         source.set_callback(() => {
             var time = new DateTime.now_local();
-            var time_str = "%02d:%02d:%02d".printf(time.get_hour(), time.get_minute(),
+            var time_str = "%02d:%02d:%02d".printf(time.get_hour() % 12, time.get_minute(),
                 time.get_second());
             this.label.set_text(time_str);
             return true;
